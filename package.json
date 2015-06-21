@@ -2,7 +2,18 @@
   "name": "sorbetes.git",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-stylus": "^2.0.5",
+    "imagemin-pngquant": "^4.1.0",
+    "jeet": "^6.1.2",
+    "rupture": "^0.6.1",
+    "stylus": "^0.51.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
