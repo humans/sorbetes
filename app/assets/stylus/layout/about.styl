@@ -1,0 +1,23 @@
++component(feature) {
+    text-align: center;
+    padding:    2rem;
+
+    +part(image) {
+        height:          15rem;
+        width:           100%;
+        background: center center no-repeat;
+        background-size: 65%;
+
+        +option(philippines) {
+            background-image: url(/images/about/philippines.png);
+        }
+
+        +option(foreign) {
+            background-image: url(/images/about/sizes.png);
+        }
+
+        +option(sherbet) {
+            background-image: url(/images/about/sherbet.png);
+        }
+    }
+}

@@ -1,14 +1,15 @@
-var gulp     = require('gulp');
-var stylus   = require('gulp-stylus');
-var jade     = require('gulp-jade');
-var imagemin = require('gulp-imagemin');
-var jeet     = require('jeet');
-var rupture  = require('rupture')
-var pngquant = require('imagemin-pngquant');
+var gulp       = require('gulp');
+var stylus     = require('gulp-stylus');
+var jade       = require('gulp-jade');
+var imagemin   = require('gulp-imagemin');
+var jeet       = require('jeet');
+var rupture    = require('rupture')
+var pngquant   = require('imagemin-pngquant');
+var livereload = require('gulp-livereload');
 
 var path = {
     views:  './app/*.jade',
-    styles: './app/asset/stylus/*.styl',
+    styles: './app/assets/stylus/*.styl',
     images: './app/assets/images/**/*.png'
 };
 
@@ -20,18 +21,22 @@ gulp.task('stylus', function () {
 
     gulp.src(path.styles)
         .pipe(stylus(options))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./dist/css'))
+        .pipe(livereload());
 });
 
 gulp.task('watch', function () {
+    livereload.listen();
+
     gulp.watch(path.views, ['jade']);
-    gulp.watch(path.styles, ['stylus']);
+    gulp.watch('./app/assets/stylus/**/*.styl', ['stylus']);
 });
 
 gulp.task('jade', function () {
     gulp.src(path.views)
         .pipe(jade())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(livereload());
 });
 
 gulp.task('optimize', function () {
