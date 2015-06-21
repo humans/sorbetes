@@ -1,0 +1,39 @@
+.header {
+    text-align:     center;
+    vertical-align: middle;
+    width:          100%;
+
+    position: absolute;
+    top:      0;
+}
+
+.header__logo {
+    height: 60px;
+    margin: 1.5rem;
+    vertical-align: middle;
+}
+
+.navigation {
+    display: none;
+
+    ul {
+        list-style: none;
+        display:    inline;
+    }
+
+    li {
+        text-transform: uppercase;
+        display:        inline;
+
+        & + li {
+            margin-left: 1.9rem;
+        }
+    }
+
+    a {
+        color:           $colors.white;
+        font-weight:     800;
+        text-decoration: none;
+    }
+}
+

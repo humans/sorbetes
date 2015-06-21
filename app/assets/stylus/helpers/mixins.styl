@@ -1,0 +1,23 @@
+component(name) {
+    .{name} {
+        {block}
+    }
+}
+
+part(name) {
+    &__{name} {
+        {block}
+    }
+}
+
+option(name) {
+    &.\\-\\-{name} {
+        {block}
+    }
+}
+
+tweak(name, id=csstyle) {
+    #{id} & .\\+{name} {
+        {block}
+    }
+}
