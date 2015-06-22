@@ -31,4 +31,4 @@ $.fn.parallax = function(options) {
     return $(this);
 }
 
-$('.ice-cream').parallax({resistance: 4.5});
+$('.ice-cream').parallax({resistance: 20});
