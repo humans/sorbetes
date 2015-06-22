@@ -1,12 +1,26 @@
 .landing {
-    background:      url(../images/lick.png) $colors.yellow no-repeat center 140px;
+    background:      url(../images/tongue.png) $colors.yellow no-repeat center 140px;
     background-size: 360px;
+    position:        relative;
 
-    +above(600px) {
+    +part(image) {
+        height: 20rem;
+        width: 100%;
+
+        position: absolute;
+        left:     0;
+        bottom:   0;
+        background: url(../images/ice-cream.png) no-repeat center center;
+        background-size: 160px;
     }
 
     +above(1024px) {
         background-size: 550px;
         height:          760px;
+
+        +part(image) {
+            height: 25rem;
+            background-size: 230px;
+        }
     }
 }
