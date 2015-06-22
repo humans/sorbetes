@@ -1,11 +1,12 @@
-var gulp       = require('gulp');
-var stylus     = require('gulp-stylus');
-var jade       = require('gulp-jade');
-var imagemin   = require('gulp-imagemin');
-var jeet       = require('jeet');
-var rupture    = require('rupture')
-var pngquant   = require('imagemin-pngquant');
-var livereload = require('gulp-livereload');
+var gulp         = require('gulp');
+var stylus       = require('gulp-stylus');
+var jade         = require('gulp-jade');
+var imagemin     = require('gulp-imagemin');
+var jeet         = require('jeet');
+var rupture      = require('rupture')
+var pngquant     = require('imagemin-pngquant');
+var livereload   = require('gulp-livereload');
+var autoprefixer = require('autoprefixer-stylus');
 
 var path = {
     views:  './app/*.jade',
@@ -16,7 +17,11 @@ var path = {
 gulp.task('stylus', function () {
     var options = {
         compress: true,
-        use: [jeet(), rupture()]
+        use: [
+            jeet(),
+            rupture(),
+            autoprefixer({ browsers: ['iOS >= 7', 'last 10 version'] })
+        ]
     };
 
     gulp.src(path.styles)
