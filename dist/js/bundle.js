@@ -31,4 +31,24 @@ $.fn.parallax = function(options) {
     return $(this);
 }
 
+$('.feature').each(function () {
+    var element = $(this);
+
+    $(window).on('scroll', function (event) {
+        var windowTop  = $(window).scrollTop();
+        var elementTop = element.offset().top;
+        var scope = (windowTop - elementTop);
+
+        if (element.hasClass('--active')) {
+            return;
+        }
+
+        if ((scope > -200) && (scope < 20)) {
+            element.find('.feature__image').addClass('--active');
+            element.find('.feature__description').addClass('--active');
+        }
+    });
+});
+
+
 $('.ice-cream').parallax({resistance: 17});

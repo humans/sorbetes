@@ -1,5 +1,7 @@
 +component(about) {
     background: $colors.cream;
+    position:   relative;
+    z-index:    9999;
 
     +above(600px) {
         overflow: auto;
@@ -46,11 +48,31 @@
         }
     }
 
+    +part(description) {
+        opacity:    0;
+        transform:  translateY(-20px);
+        transition: 0.5s opacity, 1s transform ease-in-out;
+
+        +option(active) {
+            opacity:   1;
+            transform: translateY(0);
+        }
+    }
+
     +part(image) {
-        height:          12rem;
-        width:           100%;
-        background:      center center no-repeat;
-        background-size: 187.2px;
+        height:           12rem;
+        width:            100%;
+        background:       center center no-repeat;
+        background-size:  187.2px;
+        opacity:          0;
+        transform:        translateY(-20px);
+        transition:       0.5s opacity, 1s transform ease-in-out;
+        transition-delay: 0.5s;
+
+        +option(active) {
+            opacity:   1;
+            transform: translateY(0);
+        }
 
         +option(philippines) {
             background-image: url(../images/about/philippines.png);
