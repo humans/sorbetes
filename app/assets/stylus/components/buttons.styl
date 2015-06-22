@@ -1,5 +1,24 @@
-.button {
-    border:        2px solid $colors.white;
-    border-radius: 3rem;
-    padding:       0.55rem 1.5rem;
++component(button) {
+    background:      linear-gradient(to bottom, transparent 50%, $colors.white 50%);
+    background-size: 100% 200%;
+    border:          2px solid $colors.white;
+    border-radius:   3rem;
+    padding:         0.55rem 1.5rem;
+    text-transform:  uppercase;
+    text-decoration: none;
+    transition:      all 0.3s ease;
+
+    &:hover {
+        background-position: right bottom;
+    }
+
+    +option(order) {
+        background-image: linear-gradient(to bottom, transparent 50%, $colors.bluegreen 50%);
+        border-color:     $colors.bluegreen;
+        color:            $colors.bluegreen;
+
+        &:hover {
+            color: white;
+        }
+    }
 }

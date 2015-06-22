@@ -1,0 +1,16 @@
++component(peddling) {
+    background: $colors.red;
+    color:      $colors.white;
+
+    +part(image) {
+        height: 20rem;
+        width:  100%;
+        background: center center no-repeat;
+        background-size: 80%;
+        margin-top: 2rem;
+
+        +option(exterior) {
+            background-image: url(../images/cart/exterior.png);
+        }
+    }
+}

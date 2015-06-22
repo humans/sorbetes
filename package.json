@@ -7,6 +7,7 @@
     "gulp": "^3.9.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.0.1",
+    "gulp-livereload": "^3.8.0",
     "gulp-stylus": "^2.0.5",
     "imagemin-pngquant": "^4.1.0",
     "jeet": "^6.1.2",
