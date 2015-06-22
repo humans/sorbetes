@@ -1,5 +1,6 @@
 +component(pricing) {
     background: $colors.cream;
+    overflow: auto;
 }
 
 +component(product) {
@@ -28,11 +29,22 @@
         margin-bottom: 0.5rem;
     }
 
+    +above(600px) {
+        display: inline;
+        float: left;
+        width: 50%;
+    }
+
+    +above(1024px) {
+        width: 25%;
+        padding: 1rem;
+    }
+
     +part(image) {
         height:          15rem;
         width:           100%;
-        background:      center center no-repeat;
-        background-size: 30%;
+        background:      center bottom no-repeat;
+        background-size: 108px;
 
         +option(wafer) {
             background-image: url(../images/pricing/wafer-cone.png);
@@ -48,9 +60,14 @@
 
         +option(sandwich) {
             background-image: url(../images/pricing/sandwich.png);
-            background-size:  45%;
-            background-position: center -50px;
-            height:              12rem;
+            background-size:  150px;
+            height:           12rem;
+
+            +above(600px) {
+                height:                15rem;
+                background-position-y: bottom;
+                background-size:       150px;
+            }
         }
     }
 }

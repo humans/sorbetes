@@ -1,12 +1,54 @@
++component(about) {
+    +above(600px) {
+        overflow: auto;
+    }
+}
+
+.features {
+    overflow: auto;
+    text-align: center;
+}
+
 +component(feature) {
     text-align: center;
     padding:    2rem;
 
+    +above(600px) {
+        display: inline;
+        float:   left;
+        width:   50%;
+    }
+
+    +above(1024px) {
+        width: 33.33%;
+    }
+
+    +option(large) {
+        float:   none;
+        display: inline-block;
+    }
+
+    +option(hide-on-large) {
+        +above(1023px) {
+            display: none;
+        }
+    }
+
+    +part(row) {
+        +option(show-on-large) {
+            display: none;
+
+            +above(1023px) {
+                display: block;
+            }
+        }
+    }
+
     +part(image) {
         height:          12rem;
         width:           100%;
-        background: center center no-repeat;
-        background-size: 65%;
+        background:      center center no-repeat;
+        background-size: 187.2px;
 
         +option(philippines) {
             background-image: url(../images/about/philippines.png);
@@ -22,7 +64,7 @@
 
         +option(moustache) {
             background-image: url(../images/about/moustache.png);
-            background-size:  45%;
+            background-size:  129.6px;
         }
 
         +option(mi-gusta) {

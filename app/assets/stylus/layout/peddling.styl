@@ -6,11 +6,25 @@
         height: 20rem;
         width:  100%;
         background: center center no-repeat;
-        background-size: 80%;
+        background-size: 16rem;
         margin-top: 2rem;
 
         +option(exterior) {
             background-image: url(../images/cart/exterior.png);
+        }
+    }
+
+    +above(700px) {
+        +path(image) {
+            background-size: 20rem;
+        }
+    }
+
+    +above(1024px) {
+        +part(image) {
+            background-size: 25rem;
+
+            height: 35rem;
         }
     }
 }
