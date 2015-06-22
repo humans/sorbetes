@@ -13,3 +13,4 @@ git add images index.html js css
 git commit -m 'Deploying github pages.'
 
 git checkout master
+rm -rf res
