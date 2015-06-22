@@ -5,16 +5,39 @@
 
     position: absolute;
     top:      0;
+
+
+    +above(950px) {
+        height: 110px;
+        line-height: 110px;
+
+        > .wrapper {
+            vertical-align: middle;
+            height: 60px;
+        }
+
+        text-align: right;
+
+        +part(logo) {
+            float: left;
+        }
+    }
 }
 
 .header__logo {
     height: 60px;
     margin: 1.5rem;
     vertical-align: middle;
+
 }
 
 .navigation {
     display: none;
+
+    +above(950px) {
+        display: inline;
+    }
+
 
     ul {
         list-style: none;

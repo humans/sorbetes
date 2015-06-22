@@ -1,8 +1,12 @@
 .landing {
-    background: url(../images/lick.png) $colors.yellow no-repeat center 140px;
+    background:      url(../images/lick.png) $colors.yellow no-repeat center 140px;
     background-size: 360px;
-}
 
-.about {
-    background: $colors.cream;
+    +above(600px) {
+    }
+
+    +above(1024px) {
+        background-size: 550px;
+        height:          760px;
+    }
 }
