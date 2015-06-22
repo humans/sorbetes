@@ -1,8 +1,8 @@
 html, body {
     color: $colors.black;
-    font-family: 'adelle-sans' serif;
+    font-family: "adelle-sans", sans-serif;
     font-size:   18px;
-    font-weight: 200;
+    font-weight: 100;
 }
 
 .header {
@@ -14,14 +14,14 @@ html, body {
 }
 
 .headline {
-    font-family:   'adelle' serif;
+    font-family:   "adelle", serif;
     font-size:     1.5rem;
-    font-weight:   800;
+    font-weight:   700;
     margin-bottom: 0.5rem;
 }
 
 .caption {
-    font-weight: 200;
+    font-weight: 100;
     font-size:   1rem;
 }
 
@@ -29,10 +29,46 @@ html, body {
     color: $colors.darkbrown;
 }
 
+.headline {
+    padding-top: 1.5rem;
+}
+
 .landing__headline {
     padding-top: 10.5rem;
 }
 
-.about__headline {
-    padding-top: 1.5rem;
++above(600px) {
+    .headline {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .caption {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .landing__headline {
+        padding-top: 8.5rem;
+        margin-bottom: 0rem;
+    }
+
+    .landing__caption {
+        margin-bottom: 0rem;
+        font-size: 24px;
+    }
+
+    .pricing__headline {
+        margin-bottom: 2rem;
+    }
+}
+
++above(1024px) {
+    .headline {
+        font-size: 48px;
+    }
+
+    .landing__headline {
+        padding-top: 10rem;
+    }
 }

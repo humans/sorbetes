@@ -1,0 +1,51 @@
++component(peddling) {
+    background: $colors.red;
+    color:      $colors.white;
+    position:   relative;
+
+    +part(image) {
+        height: 20rem;
+        width:  100%;
+        background: center center no-repeat;
+        background-size: 16rem;
+        margin-top: 2rem;
+
+        +option(exterior) {
+            background-image: url(../images/cart/exterior.png);
+        }
+    }
+
+    +part(separator) {
+        height: 20rem;
+        width:  1px;
+        background: $colors.white;
+        position: absolute;
+        left: 50%;
+        top: 25%;
+    }
+
+    +above(600px) {
+        +part(separator) {
+            top:    32.5%;
+            height: 20rem;
+        }
+    }
+
+    +above(700px) {
+        +part(image) {
+            background-size: 20rem;
+        }
+    }
+
+    +above(1024px) {
+        +part(image) {
+            background-size: 25rem;
+            height: 35rem;
+        }
+
+        +part(separator) {
+            top:    27.5%;
+            height: 30rem;
+        }
+    }
+}

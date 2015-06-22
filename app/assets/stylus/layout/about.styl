@@ -1,11 +1,77 @@
++component(about) {
+    background: $colors.cream;
+    position:   relative;
+    z-index:    9999;
+
+    +above(600px) {
+        overflow: auto;
+    }
+}
+
+.features {
+    overflow: auto;
+    text-align: center;
+}
+
 +component(feature) {
     text-align: center;
 
+    +above(600px) {
+        display: inline;
+        float:   left;
+        width:   50%;
+    }
+
+    +above(1024px) {
+        width: 33.33%;
+    }
+
+    +option(large) {
+        float:   none;
+        display: inline-block;
+    }
+
+    +option(hide-on-large) {
+        +above(1023px) {
+            display: none;
+        }
+    }
+
+    +part(row) {
+        +option(show-on-large) {
+            display: none;
+
+            +above(1023px) {
+                display: block;
+            }
+        }
+    }
+
+    +part(description) {
+        opacity:    0;
+        transform:  translateY(-20px);
+        transition: 0.5s opacity, 1s transform ease-in-out;
+
+        +option(active) {
+            opacity:   1;
+            transform: translateY(0);
+        }
+    }
+
     +part(image) {
-        height:          15rem;
-        width:           100%;
-        background: center center no-repeat;
-        background-size: 65%;
+        height:           12rem;
+        width:            100%;
+        background:       center center no-repeat;
+        background-size:  187.2px;
+        opacity:          0;
+        transform:        translateY(-20px);
+        transition:       0.5s opacity, 1s transform ease-in-out;
+        transition-delay: 0.5s;
+
+        +option(active) {
+            opacity:   1;
+            transform: translateY(0);
+        }
 
         +option(philippines) {
             background-image: url(../images/about/philippines.png);
@@ -17,6 +83,15 @@
 
         +option(sherbet) {
             background-image: url(../images/about/sherbet.png);
+        }
+
+        +option(moustache) {
+            background-image: url(../images/about/moustache.png);
+            background-size:  129.6px;
+        }
+
+        +option(mi-gusta) {
+            background-image: url(../images/about/mi-gusta.png);
         }
     }
 }

@@ -1,0 +1,73 @@
++component(pricing) {
+    background: $colors.cream;
+    overflow: auto;
+}
+
++component(product) {
+    text-align: center;
+    padding:    2rem 0;
+
+    +part(title) {
+        font-weight: 200;
+        margin-bottom: 1rem;
+    }
+
+    +part(description) {
+        margin-bottom: 1.5rem;
+    }
+
+    +part(order) {
+        display:   block;
+        font-size: 0.8rem;
+        margin:    0 auto;
+        width:     6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    +part(price) {
+        display:   block;
+        margin-bottom: 0.5rem;
+    }
+
+    +above(600px) {
+        display: inline;
+        float: left;
+        width: 50%;
+    }
+
+    +above(1164px) {
+        width: 25%;
+        padding: 1rem;
+    }
+
+    +part(image) {
+        height:          15rem;
+        width:           100%;
+        background:      center bottom no-repeat;
+        background-size: 108px;
+
+        +option(wafer) {
+            background-image: url(../images/pricing/wafer-cone.png);
+        }
+
+        +option(sugar) {
+            background-image: url(../images/pricing/sugar-cone.png);
+        }
+
+        +option(cup) {
+            background-image: url(../images/pricing/cup.png);
+        }
+
+        +option(sandwich) {
+            background-image: url(../images/pricing/sandwich.png);
+            background-size:  150px;
+            height:           12rem;
+
+            +above(600px) {
+                height:                15rem;
+                background-position-y: bottom;
+                background-size:       150px;
+            }
+        }
+    }
+}

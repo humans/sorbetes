@@ -4,6 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "autoprefixer-stylus": "^0.7.0",
     "gulp": "^3.9.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.0.1",
