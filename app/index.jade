@@ -1,12 +1,23 @@
 doctype html
-html
+html.no-js(lang='')
     head
+        meta(charset='utf-8')
+        meta(http-equiv='x-ua-compatible', content='ie=edge')
         title Sorbetes
+        meta(name='description', content='')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
         link(type='text/css', rel='stylesheet', href='css/style.css')
         script(src='//use.typekit.net/smb8wka.js')
         script.
             try{Typekit.load();}catch(e){}
     body
+        //if lt IE 8
+            p.browserupgrade
+            | You are using an
+            strong outdated
+            |  browser. Please
+            a(href='http://browsehappy.com/') upgrade your browser
+            |  to improve your experience.
         header.header
             div.wrapper
                 img.header__logo(src="./images/logo.png")
