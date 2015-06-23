@@ -1,8 +1,8 @@
 .landing {
     background:      url(../images/tongue.png) $colors.yellow no-repeat center 140px;
-    background-size: 360px;
+    background-size: 400px;
+    height:          550px;
     position:        relative;
-    padding:         1rem 0 5rem 0;
 
 
     +part(heading) {
@@ -21,26 +21,36 @@
 
         position: absolute;
         left:     0;
-        bottom:   10px;
+        bottom:   -100px;
         background: url(../images/ice-cream.png) no-repeat center center;
         background-size: 160px;
 
         +above(600px) {
-            bottom: 20px;
+            bottom: -125px;
         }
 
         +above(1024px) {
-            bottom: 40px;
+            bottom: -150px;
+        }
+    }
+
+    +above(600px) {
+        background-size: 500px;
+        height:          650px;
+
+        +part(image) {
+            height: 22rem;
+            background-size: 200px;
         }
     }
 
     +above(1024px) {
-        background-size: 550px;
-        height:          760px;
+        background-size: 600px;
+        height:          800px;
 
         +part(image) {
-            height: 25rem;
-            background-size: 230px;
+            height: 30rem;
+            background-size: 250px;
         }
     }
 }
