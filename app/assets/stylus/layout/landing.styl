@@ -2,6 +2,8 @@
     background:      url(../images/tongue.png) $colors.yellow no-repeat center 140px;
     background-size: 360px;
     position:        relative;
+    padding:         1rem 0 5rem 0;
+
 
     +part(heading) {
         position: relative;
@@ -15,13 +17,21 @@
 
     +part(image) {
         height: 20rem;
-        width: 100%;
+        width:  100%;
 
         position: absolute;
         left:     0;
-        bottom:   -10px;
+        bottom:   10px;
         background: url(../images/ice-cream.png) no-repeat center center;
         background-size: 160px;
+
+        +above(600px) {
+            bottom: 20px;
+        }
+
+        +above(1024px) {
+            bottom: 40px;
+        }
     }
 
     +above(1024px) {
