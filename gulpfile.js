@@ -2,6 +2,7 @@ var gulp         = require('gulp');
 var stylus       = require('gulp-stylus');
 var jade         = require('gulp-jade');
 var imagemin     = require('gulp-imagemin');
+var uglify       = require('gulp-uglify');
 var jeet         = require('jeet');
 var rupture      = require('rupture')
 var pngquant     = require('imagemin-pngquant');
@@ -28,6 +29,12 @@ gulp.task('stylus', function () {
         .pipe(stylus(options))
         .pipe(gulp.dest('./dist/css'))
         .pipe(livereload());
+});
+
+gulp.task('compress', function () {
+    return gulp.src('app/assets/js/bundle.js')
+               .pipe(uglify())
+               .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('watch', function () {
