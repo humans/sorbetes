@@ -50,5 +50,21 @@ $('.feature').each(function () {
     });
 });
 
+$(window).on('scroll', function (event) {
+    var element    = $('.peddling__image');
+    var windowTop  = $(window).scrollTop();
+    var elementTop = element.offset().top;
+    var scope      = (windowTop - elementTop);
+
+    if (element.hasClass('--active')) {
+        return;
+    }
+
+    if ((scope > -200) && (scope < 20)) {
+        element.addClass('--active');
+        console.error('test');
+    }
+});
+
 
 $('.ice-cream').parallax({resistance: 17});
