@@ -33,9 +33,10 @@
     }
 
     +part(description) {
-        opacity:    0;
-        transform:  translateY(-20px);
-        transition: 0.5s opacity, 1s transform ease-in-out;
+        opacity:          0;
+        transform:        translateY(-20px);
+        transition:       0.5s opacity, 1s transform ease-in-out;
+        transition-delay: 0;
 
         +option(active) {
             opacity:   1;
@@ -109,3 +110,34 @@
         }
     }
 }
+
++above($breakpoints.tablet) {
+    +tweak(first) {
+        transition-delay: 0;
+    }
+    +tweak(second) {
+        transition-delay: 0.5s;
+    }
+    +tweak(third) {
+        transition-delay: 0s;
+    }
+    +tweak(fourth) {
+        transition-delay: 0.5s;
+    }
+    +tweak(fifth) {
+        transition-delay: 0s;
+    }
+}
+
++above($breakpoints.desktop) {
+    +tweak(first) {
+        transition-delay: 0;
+    }
+    +tweak(second) {
+        transition-delay: 0.5s;
+    }
+    +tweak(third) {
+        transition-delay: 1s;
+    }
+}
+

@@ -10,7 +10,7 @@ html.no-js(lang='')
         script(src='//use.typekit.net/smb8wka.js')
         script.
             try{Typekit.load();}catch(e){}
-    body
+    body#sorbetes
         //if lt IE 8
             p.browserupgrade
             | You are using an
@@ -43,33 +43,33 @@ html.no-js(lang='')
 
                 div.facts
                     div.fact
-                        div.fact__image.--philippines
-                        div.fact__description
+                        div.fact__image.--philippines(class="+first")
+                        div.fact__description(class="+second")
                             | #[strong Sorbetes] is the traditional variation of ice cream made in the philippines.
                     div.fact
-                        div.fact__image.--foreign
-                        div.fact__description
+                        div.fact__image.--foreign(class="+second")
+                        div.fact__description(class="+second")
                             | It is served in small scoops (quite small in comparison with American portions) on small sugar cones.
                     div.fact
-                        div.fact__image.--sherbet
-                        div.fact__description
+                        div.fact__image.--sherbet(class="+third")
+                        div.fact__description(class="+third")
                             | #[strong Sorbetes] came from the spanish word #[em sorbete], meaning sorbet or sherbet.
                     div.fact.--hide-on-large
-                        div.fact__image.--moustache
-                        div.fact__description
+                        div.fact__image.--moustache(class="+fourth")
+                        div.fact__description(class="+fourth")
                             | Although #[strong sorbetes] came from #[em sorbete,] the Spanish word for ice cream is #[em helado.]
                     div.fact.--hide-on-large
-                        div.fact__image.--mi-gusta
-                        div.fact__description
+                        div.fact__image.--mi-gusta(class="+fifth")
+                        div.fact__description(class="+fifth")
                             | Rumor has it that #[strong sorbetes] came from the Spanish word #[em sorber,] which means &ldquo;to suck.&rdquo;
                 div.fact__row.facts.--show-on-large
                     div.fact.--large
-                        div.fact__image.--moustache
-                        div.fact__description
+                        div.fact__image.--moustache(class="+first")
+                        div.fact__description(class="+first")
                             | Although #[strong sorbetes] came from #[em sorbete,] the Spanish word for ice cream is #[em helado.]
                     div.fact.--large
-                        div.fact__image.--mi-gusta
-                        div.fact__description
+                        div.fact__image.--mi-gusta(class="+second")
+                        div.fact__description(class="+second")
                             | Rumor has it that #[strong sorbetes] came from the Spanish word #[em sorber,] which means &ldquo;to suck.&rdquo;
         section.section.peddling
             div.wrapper
