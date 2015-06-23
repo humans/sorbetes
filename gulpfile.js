@@ -42,6 +42,7 @@ gulp.task('watch', function () {
 
     gulp.watch(path.views, ['jade']);
     gulp.watch('./app/assets/stylus/**/*.styl', ['stylus']);
+    gulp.watch('./app/assets/js/bundle.js', ['compress']);
 });
 
 gulp.task('jade', function () {
