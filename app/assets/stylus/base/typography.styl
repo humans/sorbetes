@@ -1,30 +1,35 @@
 html, body {
-    color: $colors.black;
+    color:       $colors.black;
     font-family: "adelle-sans", sans-serif;
     font-size:   18px;
     font-weight: 100;
 }
 
-.currency {
-    font-family: "Helvetica Nueue", Arial, serif;
+a {
+    color:           $colors.white;
+    font-weight:     800;
+    text-decoration: none;
 }
 
-.header {
-    color: $colors.white;
++component(currency) {
+    font-family: "Helvetica Nueue", Arial, serif;
 }
 
 .headline, .caption {
     text-align: center;
+    position:   relative;
+    z-index:    9000;
 }
 
-.headline {
++component(headline) {
     font-family:   "adelle", serif;
     font-size:     1.5rem;
     font-weight:   700;
     margin-bottom: 0.5rem;
+    padding-top:   1.5rem;
 }
 
-.caption {
++component(caption) {
     font-weight: 100;
     font-size:   1rem;
 }
@@ -33,33 +38,29 @@ html, body {
     color: $colors.darkbrown;
 }
 
-.headline {
-    padding-top: 1.5rem;
-}
-
 .landing__headline {
     padding-top: 9rem;
 }
 
-+above(600px) {
-    .headline {
-        font-size: 2rem;
++above($breakpoints.tablet) {
+    +component(headline) {
+        font-size:     2rem;
         margin-bottom: 1.5rem;
     }
 
-    .caption {
+    +component(caption) {
+        font-size:     1rem;
         margin-bottom: 2rem;
-        font-size: 1rem;
     }
 
     .landing__headline {
-        padding-top: 8.5rem;
         margin-bottom: 0rem;
+        padding-top:   8.5rem;
     }
 
     .landing__caption {
+        font-size:     24px;
         margin-bottom: 0rem;
-        font-size: 24px;
     }
 
     .pricing__headline {
@@ -67,7 +68,7 @@ html, body {
     }
 }
 
-+above(1024px) {
++above($breakpoints.desktop) {
     .headline {
         font-size: 48px;
     }

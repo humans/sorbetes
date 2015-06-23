@@ -1,56 +1,40 @@
 .landing {
     background:      url(../images/tongue.png) $colors.yellow no-repeat center 140px;
-    background-size: 400px;
-    height:          550px;
+    background-size: 22.222222222rem;
+    height:          30.555555556rem;
     position:        relative;
 
-
-    +part(heading) {
-        position: relative;
-        z-index: 9999;
+    +above($breakpoints.tablet) {
+        background-size: 27.777777778rem;
+        height:          36.111111111rem;
     }
 
-    +part(caption) {
-        position: relative;
-        z-index: 9999;
+    +above($breakpoints.desktop) {
+        background-size: 33.333333333rem;
+        height:          44.444444444rem;
     }
 
     +part(image) {
-        height: 20rem;
-        width:  100%;
+        background:      url(../images/ice-cream.png) no-repeat center center;
+        background-size: 160px;
+        height:          20rem;
+        width:           100%;
 
         position: absolute;
+        bottom:   -5.5rem;
         left:     0;
-        bottom:   -100px;
-        background: url(../images/ice-cream.png) no-repeat center center;
-        background-size: 160px;
+        z-index:  0;
 
-        +above(600px) {
-            bottom: -125px;
+        +above($breakpoints.tablet) {
+            bottom:          -7rem;
+            height:          22rem;
+            background-size: 11.111111111rem;
         }
 
-        +above(1024px) {
-            bottom: -150px;
-        }
-    }
-
-    +above(600px) {
-        background-size: 500px;
-        height:          650px;
-
-        +part(image) {
-            height: 22rem;
-            background-size: 200px;
-        }
-    }
-
-    +above(1024px) {
-        background-size: 600px;
-        height:          800px;
-
-        +part(image) {
-            height: 30rem;
-            background-size: 250px;
+        +above($breakpoints.desktop) {
+            bottom:          -7rem;
+            height:          30rem;
+            background-size: 13.888888889rem;
         }
     }
 }

@@ -1,52 +1,35 @@
 +component(about) {
     background: $colors.cream;
     position:   relative;
-    z-index:    9999;
-
-    +above(600px) {
-        overflow: auto;
-    }
 }
 
-.features {
-    overflow: auto;
++component(facts) {
+    // Give height to the parent container.
+    overflow:   auto;
     text-align: center;
 }
 
-+component(feature) {
+/*
+|--------------------------------------------------------------------------
+| Fact Component.
+|--------------------------------------------------------------------------
+|
+| List of trivia facts.
+|
+*/
++component(fact) {
+    padding:    3rem 0;
     text-align: center;
-    padding: 3rem 0;
 
-    +above(600px) {
+    +above($breakpoints.tablet) {
         display: inline;
         float:   left;
-        width:   50%;
         padding: 3rem 1rem;
+        width:   50%;
     }
 
-    +above(1024px) {
+    +above($breakpoints.desktop) {
         width: 33.33%;
-    }
-
-    +option(large) {
-        float:   none;
-        display: inline-block;
-    }
-
-    +option(hide-on-large) {
-        +above(1023px) {
-            display: none;
-        }
-    }
-
-    +part(row) {
-        +option(show-on-large) {
-            display: none;
-
-            +above(1023px) {
-                display: block;
-            }
-        }
     }
 
     +part(description) {
@@ -64,9 +47,9 @@
         height:           12rem;
         width:            100%;
         background:       center center no-repeat;
-        background-size:  187.2px;
+        background-size:  10.4rem;
         opacity:          0;
-        transform:        translateY(-20px);
+        transform:        translateY(-1.2rem);
         transition:       0.5s opacity, 1s transform ease-in-out;
         transition-delay: 0.5s;
 
@@ -89,11 +72,40 @@
 
         +option(moustache) {
             background-image: url(../images/about/moustache.png);
-            background-size:  129.6px;
+            background-size:  7.2rem;
         }
 
         +option(mi-gusta) {
             background-image: url(../images/about/mi-gusta.png);
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hackery
+    |--------------------------------------------------------------------------
+    |
+    | Just minor hacks to get everything on center.
+    |
+    */
+    +option(large) {
+        float:   none;
+        display: inline-block;
+    }
+
+    +option(hide-on-large) {
+        +above($breakpoints.desktop) {
+            display: none;
+        }
+    }
+
+    +part(row) {
+        +option(show-on-large) {
+            display: none;
+
+            +above($breakpoints.desktop) {
+                display: block;
+            }
         }
     }
 }
