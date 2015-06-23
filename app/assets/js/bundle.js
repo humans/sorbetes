@@ -31,7 +31,7 @@ $.fn.parallax = function(options) {
     return $(this);
 }
 
-$('.feature').each(function () {
+$('.fact').each(function () {
     var element = $(this);
 
     $(window).on('scroll', function (event) {
@@ -44,8 +44,8 @@ $('.feature').each(function () {
         }
 
         if ((scope > -250) && (scope < 20)) {
-            element.find('.feature__image').addClass('--active');
-            element.find('.feature__description').addClass('--active');
+            element.find('.fact__image').addClass('--active');
+            element.find('.fact__description').addClass('--active');
         }
     });
 });
@@ -62,12 +62,11 @@ $(window).on('scroll', function (event) {
 
     if ((scope > -250) && (scope < 20)) {
         element.addClass('--active');
-        console.error('test');
     }
 });
 
+$('.ice-cream').parallax({resistance: 8});
 $('.product__order').on('click', function (event) { event.preventDefault(); });
-$('.ice-cream').parallax({resistance: 17});
 
 // Yes, I know I can extract this to a function but I just want to finish this now. :D
 $('.header__link.--about').on('click', function(event) {

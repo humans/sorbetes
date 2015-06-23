@@ -1,4 +1,5 @@
-.header {
++component(header) {
+    color:          $colors.white;
     text-align:     center;
     vertical-align: middle;
     width:          100%;
@@ -8,37 +9,29 @@
     z-index:  9999;
 
 
-    +above(950px) {
-        height: 110px;
-        line-height: 110px;
+    +above($breakpoints.header) {
+        height:      6.111111111rem;
+        line-height: @height;
+        text-align:  right;
+    }
 
-        > .wrapper {
-            vertical-align: middle;
-            height: 60px;
-        }
+    +part(logo) {
+        height: 60px;
+        margin: 1.5rem;
 
-        text-align: right;
-
-        +part(logo) {
+        +above($breakpoints.header) {
             float: left;
         }
     }
 }
 
-.header__logo {
-    height: 60px;
-    margin: 1.5rem;
-    vertical-align: middle;
 
-}
-
-.navigation {
++component(navigation) {
     display: none;
 
-    +above(950px) {
+    +above($breakpoints.header) {
         display: inline;
     }
-
 
     ul {
         list-style: none;
@@ -46,18 +39,12 @@
     }
 
     li {
-        text-transform: uppercase;
         display:        inline;
+        text-transform: uppercase;
 
         & + li {
             margin-left: 1.9rem;
         }
-    }
-
-    a {
-        color:           $colors.white;
-        font-weight:     800;
-        text-decoration: none;
     }
 }
 
