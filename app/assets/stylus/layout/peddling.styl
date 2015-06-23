@@ -3,15 +3,43 @@
     color:      $colors.white;
     position:   relative;
 
+    +part(stage) {
+        position: relative;
+    }
+
     +part(image) {
         height: 20rem;
         width:  100%;
         background: center center no-repeat;
         background-size: 16rem;
         margin-top: 2rem;
+        position: relative;
+        transition: 2s all ease-in-out;
+        transform: translateX(10%);
+
+        +above(700px) {
+            background-size: 20rem;
+        }
+
+        +above(1024px) {
+        }
+
+        +option(active) {
+            transform: translateX(50%);
+        }
 
         +option(exterior) {
             background-image: url(../images/cart/exterior.png);
+            top: 24%;
+            z-index: 201;
+        }
+
+        +option(interior) {
+            background-image: url(../images/cart/interior.png);
+            position: absolute;
+            top: 24%;
+            left: -100%;
+            z-index: 200;
         }
     }
 
@@ -21,31 +49,47 @@
         background: $colors.white;
         position: absolute;
         left: 50%;
-        top: 25%;
-    }
+        top: 30%;
+        z-index: 999;
 
-    +above(600px) {
-        +part(separator) {
+        +above(600px) {
             top:    32.5%;
             height: 20rem;
-        }
-    }
-
-    +above(700px) {
-        +part(image) {
-            background-size: 20rem;
         }
     }
 
     +above(1024px) {
         +part(image) {
             background-size: 25rem;
-            height: 35rem;
+            height: 25rem;
         }
 
         +part(separator) {
-            top:    27.5%;
-            height: 30rem;
+            top:    28%;
+            height: 25rem;
         }
+    }
+}
+
+
++component(stage) {
+    +part(cover) {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        +option(left) {
+            left: -50%;
+        }
+
+        +option(right) {
+            right: -50%;
+        }
+    }
+
+    +above(1024px) {
+        height: 25rem;
     }
 }
