@@ -66,5 +66,30 @@ $(window).on('scroll', function (event) {
     }
 });
 
-
+$('.product__order').on('click', function (event) { event.preventDefault(); });
 $('.ice-cream').parallax({resistance: 17});
+
+// Yes, I know I can extract this to a function but I just want to finish this now. :D
+$('.header__link.--about').on('click', function(event) {
+    event.preventDefault();
+
+    var offset = $('.section.about').offset().top;
+
+    $('html, body').animate({scrollTop: offset}, 1000);
+});
+
+$('.header__link.--peddling').on('click', function(event) {
+    event.preventDefault();
+
+    var offset = $('.section.peddling').offset().top;
+
+    $('html, body').animate({scrollTop: offset}, 1250);
+});
+
+$('.header__link.--pricing').on('click', function(event) {
+    event.preventDefault();
+
+    var offset = $('.section.pricing').offset().top;
+
+    $('html, body').animate({scrollTop: offset}, 1500);
+});
