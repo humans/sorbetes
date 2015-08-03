@@ -1,5 +1,5 @@
 doctype html
-html.no-js(lang='')
+html.no-js(lang='en')
     head
         meta(charset='utf-8')
         meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -11,26 +11,19 @@ html.no-js(lang='')
         script.
             try{Typekit.load();}catch(e){}
     body#sorbetes
-        //if lt IE 8
-            p.browserupgrade
-            | You are using an
-            strong outdated
-            |  browser. Please
-            a(href='http://browsehappy.com/') upgrade your browser
-            |  to improve your experience.
         header.header
             div.wrapper
-                img.header__logo(src="./images/logo.png")
+                img.header__logo(src="./images/logo.png", alt="Sorbetes")
                 nav.header__navigation.navigation
                     ul
                         li
-                            a.header__link.--about(href="#") About
+                            a.header__link.--about(href="/about") About
                         //-li
                             //-a.header__link.--facts(href="#") Features
                         li
-                            a.header__link.--peddling(href="#") Service
+                            a.header__link.--peddling(href="/service") Service
                         li
-                            a.header__link.--pricing.button(href="#") Buy it now
+                            a.header__link.--pricing.button(href="/order") Buy it now
         section.section.landing
             div.wrapper
                 h1.headline.landing__headline &ldquo;Cheap, Dirty, and Tasty!&rdquo;
@@ -86,25 +79,25 @@ html.no-js(lang='')
                 h1.headline.pricing__headline Get it out there today!
 
                 div.pricing__product.product
-                    h3.product__title #[strong Sorbetes] in Wafer Cone
+                    h2.product__title #[strong Sorbetes] in Wafer Cone
                     p.product__description Cupcake ipsum dolor sit amet tootsie roll. Danish sugar plum apple pie.
                     a.product__order.button.--order(href="#") Order
                     span.product__price #[i.currency &#8369;]5.00
                     div.product__image.--wafer
                 div.pricing__product.product
-                    h3.product__title #[strong Sorbetes] in Sugar Cone
+                    h2.product__title #[strong Sorbetes] in Sugar Cone
                     p.product__description Cupcake ipsum dolor sit amet tootsie roll. Danish sugar plum apple pie.
                     a.product__order.button.--order(href="#") Order
                     span.product__price #[i.currency &#8369;]10.00
                     div.product__image.--sugar
                 div.pricing__product.product
-                    h3.product__title #[strong Sorbetes] in a Cup
+                    h2.product__title #[strong Sorbetes] in a Cup
                     p.product__description Cupcake ipsum dolor sit amet tootsie roll. Danish sugar plum apple pie.
                     a.product__order.button.--order(href="#") Order
                     span.product__price #[i.currency &#8369;]10.00
                     div.product__image.--cup
                 div.pricing__product.product
-                    h3.product__title #[strong Sorbetes] Sandwich
+                    h2.product__title #[strong Sorbetes] Sandwich
                     p.product__description Cupcake ipsum dolor sit amet tootsie roll. Danish sugar plum apple pie.
                     a.product__order.button.--order(href="#") Order
                     span.product__price #[i.currency &#8369;]20.00
