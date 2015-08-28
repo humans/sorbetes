@@ -7,11 +7,14 @@ var _utilsParallax = require('./utils/Parallax');
 
 var _utilsParallax2 = _interopRequireDefault(_utilsParallax);
 
-var ice_cream = document.querySelector('.ice-cream');
+var _utilsReveal = require('./utils/Reveal');
 
-new _utilsParallax2['default'](ice_cream, { resistance: 8 }).apply();
+var _utilsReveal2 = _interopRequireDefault(_utilsReveal);
 
-},{"./utils/Parallax":2}],2:[function(require,module,exports){
+// new Parallax(ice_cream, { resistance: 8 }).apply();
+_utilsParallax2['default'].on('.ice-cream').resistance(8).inverse().apply();
+
+},{"./utils/Parallax":2,"./utils/Reveal":3}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -38,34 +41,87 @@ var Parallax = (function () {
      */
 
     function Parallax(element) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
         _classCallCheck(this, Parallax);
-
-        var defaults = {
-            opacity: false,
-            resistance: 1,
-            inverse: true
-        };
 
         this.element = element;
 
-        // Override the defaults.
-        this.options = _lodash2['default'].assign(defaults, options);
+        this.options = {
+            opacity: false,
+            resistance: 1,
+            inverse: false
+        };
     }
 
     /**
-     * Apply the parallax to the given element.
+     * Set the element to apply the parallax on.
      *
+     * @param  {object}  selector
      * @return {Parallax}
      */
 
     _createClass(Parallax, [{
+        key: 'resistance',
+
+        /**
+         * Override the resistance value.
+         *
+         * @param  {integer}  resistance
+         * @return {Parallax}
+         */
+        value: function resistance(_resistance) {
+            this.options.resistance = _resistance;
+
+            return this;
+        }
+
+        /**
+         * Enable parallax opacity.
+         *
+         * @return {Parallax}
+         */
+    }, {
+        key: 'revealOnScroll',
+        value: function revealOnScroll() {
+            this.options.opacity = true;
+
+            return this;
+        }
+
+        /**
+         * Set the parallax to go directly with the scrolling.
+         *
+         * @return {Parallax}
+         */
+    }, {
+        key: 'direct',
+        value: function direct() {
+            this.options.inverse = false;
+
+            return this;
+        }
+
+        /**
+         * Set the parallax to go against the scrolling.
+         *
+         * @return {Parallax}
+         */
+    }, {
+        key: 'inverse',
+        value: function inverse() {
+            this.options.inverse = true;
+
+            return this;
+        }
+
+        /**
+         * Apply the parallax to the given element.
+         *
+         * @return {Parallax}
+         */
+    }, {
         key: 'apply',
         value: function apply() {
             window.addEventListener('scroll', this._listen.bind(this));
-
-            return this;
         }
 
         /**
@@ -99,6 +155,13 @@ var Parallax = (function () {
 
             element.style.transform = 'translate(0, ' + offset + 'px)';
         }
+    }], [{
+        key: 'on',
+        value: function on(selector) {
+            var element = document.querySelector(selector);
+
+            return new Parallax(element);
+        }
     }]);
 
     return Parallax;
@@ -107,7 +170,31 @@ var Parallax = (function () {
 exports['default'] = Parallax;
 module.exports = exports['default'];
 
-},{"lodash":3}],3:[function(require,module,exports){
+},{"lodash":4}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Reveal =
+/**
+ * Create a new Reveal instance.
+ * @param  {object}  element
+ * @return {Reveal}
+ */
+function Reveal(element) {
+    _classCallCheck(this, Reveal);
+
+    this.element = element;
+};
+
+exports["default"] = Reveal;
+module.exports = exports["default"];
+
+},{}],4:[function(require,module,exports){
 (function (global){
 /**
  * @license

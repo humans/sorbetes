@@ -1,5 +1,6 @@
 import Parallax from './utils/Parallax';
+import Reveal from './utils/Reveal';
 
-var ice_cream = document.querySelector('.ice-cream');
+// new Parallax(ice_cream, { resistance: 8 }).apply();
+Parallax.on('.ice-cream').resistance(8).inverse().apply();
 
-new Parallax(ice_cream, { resistance: 8 }).apply();

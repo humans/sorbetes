@@ -8,17 +8,74 @@ class Parallax {
      * @param  {object}  options
      * @return {Parallax}
      */
-    constructor(element, options = {}) {
-        var defaults = {
-            opacity:    false,
-            resistance: 1,
-            inverse:    true
-        };
-
+    constructor(element) {
         this.element = element;
 
-        // Override the defaults.
-        this.options = _.assign(defaults, options);
+        this.options = {
+            opacity:    false,
+            resistance: 1,
+            inverse:    false
+        };
+    }
+
+    /**
+     * Set the element to apply the parallax on.
+     *
+     * @param  {object}  selector
+     * @return {Parallax}
+     */
+    static on(selector) {
+        var element = document.querySelector(selector);
+
+        return new Parallax(element);
+    }
+
+    /**
+     * Override the resistance value.
+     *
+     * @param  {integer}  resistance
+     * @return {Parallax}
+     */
+    resistance(resistance) {
+        this.options.resistance = resistance;
+
+        return this;
+    }
+
+    /**
+     * Enable parallax opacity.
+     *
+     * @return {Parallax}
+     */
+     revealOnScroll()
+    {
+        this.options.opacity = true;
+
+        return this;
+    }
+
+    /**
+     * Set the parallax to go directly with the scrolling.
+     *
+     * @return {Parallax}
+     */
+    direct()
+    {
+        this.options.inverse = false;
+
+        return this;
+    }
+
+    /**
+     * Set the parallax to go against the scrolling.
+     *
+     * @return {Parallax}
+     */
+    inverse()
+    {
+        this.options.inverse = true;
+
+        return this;
     }
 
     /**
@@ -28,8 +85,6 @@ class Parallax {
      */
     apply() {
         window.addEventListener('scroll', this._listen.bind(this));
-
-        return this;
     }
 
     /**
