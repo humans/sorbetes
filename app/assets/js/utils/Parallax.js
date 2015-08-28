@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 class Parallax {
     /**
      * Create a new Parallax instance.
@@ -21,7 +19,7 @@ class Parallax {
     /**
      * Set the element to apply the parallax on.
      *
-     * @param  {object}  selector
+     * @param  {string}  selector
      * @return {Parallax}
      */
     static on(selector) {
