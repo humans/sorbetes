@@ -7,40 +7,105 @@ var _utilsParallax = require('./utils/Parallax');
 
 var _utilsParallax2 = _interopRequireDefault(_utilsParallax);
 
-},{"./utils/Parallax":2}],2:[function(require,module,exports){
-"use strict";
+var ice_cream = document.querySelector('.ice-cream');
 
-Object.defineProperty(exports, "__esModule", {
+new _utilsParallax2['default'](ice_cream, { resistance: 8 }).apply();
+
+},{"./utils/Parallax":2}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var _lodash = require("lodash");
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var Parallax =
-/**
- * Create a new Parallax instance.
- *
- * @param  {Array}
- * @return {Parallax}
- */
-function Parallax(options) {
-    _classCallCheck(this, Parallax);
+var Parallax = (function () {
+    /**
+     * Create a new Parallax instance.
+     *
+     * @param  {object}  element
+     * @param  {object}  options
+     * @return {Parallax}
+     */
 
-    var defaults = {
-        opacity: false,
-        resistance: 1,
-        inverse: true
-    };
-};
+    function Parallax(element) {
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-exports["default"] = Parallax;
-module.exports = exports["default"];
+        _classCallCheck(this, Parallax);
+
+        var defaults = {
+            opacity: false,
+            resistance: 1,
+            inverse: true
+        };
+
+        this.element = element;
+
+        // Override the defaults.
+        this.options = _lodash2['default'].assign(defaults, options);
+    }
+
+    /**
+     * Apply the parallax to the given element.
+     *
+     * @return {Parallax}
+     */
+
+    _createClass(Parallax, [{
+        key: 'apply',
+        value: function apply() {
+            window.addEventListener('scroll', this._listen.bind(this));
+
+            return this;
+        }
+
+        /**
+         * Listen for the scrolling event.
+         *
+         * @param  {object}  event
+         * @return {void}
+         */
+    }, {
+        key: '_listen',
+        value: function _listen(event) {
+            var element = this.element;
+            var options = this.options;
+
+            // Calculate to current page offset.
+            var total_offset = window.pageYOffset + window.innerHeight;
+
+            // Calculate the scroll position.
+            var top = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0);
+
+            // Determine the parallax motion. (Up or down)
+            var sign = options.inverse ? -1 : 1;
+
+            var offset = window.pageYOffset * sign / options.resistance;
+
+            if (options.opacity) {
+                var opacity = (100 - top) / 100;
+
+                element.style.opacity = opacity;
+            }
+
+            element.style.transform = 'translate(0, ' + offset + 'px)';
+        }
+    }]);
+
+    return Parallax;
+})();
+
+exports['default'] = Parallax;
+module.exports = exports['default'];
 
 },{"lodash":3}],3:[function(require,module,exports){
 (function (global){

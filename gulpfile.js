@@ -47,7 +47,7 @@ gulp.task('watch', function () {
     livereload.listen();
 
     gulp.watch('./app/*.jade', ['jade']);
-    gulp.watch('./app/app/js/*.js', ['browserify']);
+    gulp.watch('./app/assets/js/**/*.js', ['browserify']);
     gulp.watch('./app/assets/stylus/**/*.styl', ['stylus']);
     gulp.watch('./app/assets/js/bundle.js', ['compress']);
 });
