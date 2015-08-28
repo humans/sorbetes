@@ -9,23 +9,29 @@ var pngquant     = require('imagemin-pngquant');
 var livereload   = require('gulp-livereload');
 var autoprefixer = require('autoprefixer-stylus');
 
-var path = {
-    views:  './app/*.jade',
-    styles: './app/assets/stylus/*.styl',
-    images: './app/assets/images/**/*.png'
-};
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
+
+gulp.task('browserify', function() {
+    return browserify('./app/assets/js/main.js')
+        .transform(babelify, { stage: 0 })
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('./dist/js'));
+});
 
 gulp.task('stylus', function () {
-    var options = {
+    var optionsptions = {
         compress: true,
         use: [
             jeet(),
             rupture(),
-            autoprefixer({ browsers: ['iOS >= 7', 'last 10 version'] })
+            autoprefixer({ browsers: ['last 2 versions'] })
         ]
     };
 
-    gulp.src(path.styles)
+    gulp.src('./app/assets/stylus/*.styl')
         .pipe(stylus(options))
         .pipe(gulp.dest('./dist/css'))
         .pipe(livereload());
@@ -40,13 +46,14 @@ gulp.task('compress', function () {
 gulp.task('watch', function () {
     livereload.listen();
 
-    gulp.watch(path.views, ['jade']);
+    gulp.watch('./app/*.jade', ['jade']);
+    gulp.watch('./app/app/js/*.js', ['browserify']);
     gulp.watch('./app/assets/stylus/**/*.styl', ['stylus']);
     gulp.watch('./app/assets/js/bundle.js', ['compress']);
 });
 
 gulp.task('jade', function () {
-    gulp.src(path.views)
+    gulp.src('./app/*.jade')
         .pipe(jade())
         .pipe(gulp.dest('./dist/'))
         .pipe(livereload());
@@ -59,7 +66,7 @@ gulp.task('optimize', function () {
         use:         [pngquant()]
     };
 
-    return gulp.src(path.images)
+    return gulp.src('./app/assets/images/**/*.png')
                .pipe(imagemin(options))
                .pipe(gulp.dest('dist/images'));
 });

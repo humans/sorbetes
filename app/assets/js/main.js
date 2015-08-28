@@ -1,0 +1,1 @@
+import Parallax from './utils/Parallax';

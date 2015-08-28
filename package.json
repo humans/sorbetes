@@ -4,7 +4,12 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
     "autoprefixer-stylus": "^0.7.0",
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
     "gulp": "^3.9.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.0.1",
@@ -14,9 +19,9 @@
     "imagemin-pngquant": "^4.1.0",
     "jeet": "^6.1.2",
     "rupture": "^0.6.1",
-    "stylus": "^0.51.1"
+    "stylus": "^0.51.1",
+    "vinyl-source-stream": "^1.1.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
