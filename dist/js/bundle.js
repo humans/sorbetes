@@ -9,6 +9,75 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+var Cart = (function () {
+    function Cart() {
+        _classCallCheck(this, Cart);
+
+        var selector = '.peddling__image';
+
+        this.interior = document.querySelector('.peddling__image.--interior');
+        this.exterior = document.querySelector('.peddling__image.--exterior');
+    }
+
+    _createClass(Cart, [{
+        key: 'animate',
+        value: function animate() {
+            var scope = this.interior.getBoundingClientRect().top;
+
+            if (this.has_class('--active')) {
+                return;
+            }
+
+            if (scope < 210 || scope > 260) {
+                return;
+            }
+
+            this._add_class('--active');
+        }
+
+        /**
+         * Check if the instance already has the given class.
+         *
+         * @param  {string}  class_name
+         * @return {boolean}
+         */
+    }, {
+        key: 'has_class',
+        value: function has_class(class_name) {
+            return this.interior.className.indexOf(class_name) > -1;
+        }
+
+        /**
+         * Add a class to the container and the main elements.
+         *
+         * @param  {string}  class_name
+         * @return {void}
+         */
+    }, {
+        key: '_add_class',
+        value: function _add_class(class_name) {
+            this.interior.className += ' ' + class_name;
+            this.exterior.className += ' ' + class_name;
+        }
+    }]);
+
+    return Cart;
+})();
+
+exports['default'] = Cart;
+module.exports = exports['default'];
+
+},{}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 var Trivia = (function () {
     /**
      * Create a new Trivia instance.
@@ -94,7 +163,7 @@ var Trivia = (function () {
 exports['default'] = Trivia;
 module.exports = exports['default'];
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -260,7 +329,7 @@ var TriviaCollection = (function () {
 exports['default'] = TriviaCollection;
 module.exports = exports['default'];
 
-},{"./Trivia":1}],3:[function(require,module,exports){
+},{"./Trivia":2}],4:[function(require,module,exports){
 /**
  * Made a scroll event helper just to make things a bit more modular.
  */
@@ -299,7 +368,7 @@ var ScrollEvent = (function () {
 exports['default'] = ScrollEvent;
 module.exports = exports['default'];
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -316,16 +385,22 @@ var _componentsTriviaCollection = require('./components/TriviaCollection');
 
 var _componentsTriviaCollection2 = _interopRequireDefault(_componentsTriviaCollection);
 
+var _componentsCart = require('./components/Cart');
+
+var _componentsCart2 = _interopRequireDefault(_componentsCart);
+
 var selection = document.querySelectorAll('.fact');
 var trivium = new _componentsTriviaCollection2['default'](selection);
+var cart = new _componentsCart2['default']();
 
 _eventsScrollEvent2['default'].listen(function () {
     trivium.visible_on_screen().show();
+    cart.animate();
 });
 
 _utilsParallax2['default'].on('.ice-cream').resistance(8).inverse().apply();
 
-},{"./components/TriviaCollection":2,"./events/ScrollEvent":3,"./utils/Parallax":5}],5:[function(require,module,exports){
+},{"./components/Cart":1,"./components/TriviaCollection":3,"./events/ScrollEvent":4,"./utils/Parallax":6}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -475,4 +550,4 @@ var Parallax = (function () {
 exports['default'] = Parallax;
 module.exports = exports['default'];
 
-},{}]},{},[4]);
+},{}]},{},[5]);
