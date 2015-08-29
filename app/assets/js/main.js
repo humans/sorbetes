@@ -1,12 +1,12 @@
 import Parallax from './utils/Parallax';
-import Reveal from './utils/Reveal';
+import Scroll from './utils/Scroll';
+import TriviaCollection from './components/TriviaCollection';
 
-// var facts = new Facts('.fact');
-//
-// Scroll.listen(function () {
-//     facts.in_viewport().reveal();
-// });
+var trivium = new TriviaCollection(document.querySelectorAll('.fact'));
+
+Scroll.listen(function () {
+    trivium.visible_on_screen().show();
+});
+
 
 Parallax.on('.ice-cream').resistance(8).inverse().apply();
-
-Reveal.elements('.fact').midscreen();
