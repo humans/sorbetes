@@ -10,13 +10,27 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var Trivia = (function () {
+    /**
+     * Create a new Trivia instance.
+     *
+     * @param  {object}  element
+     * @return {Trivia}
+     */
+
     function Trivia(element) {
         _classCallCheck(this, Trivia);
 
         this.element = element;
 
+        // Class prefix.
         this.prefix = '.fact';
     }
+
+    /**
+     * Return the relative position from the window top.
+     *
+     * @return {object}
+     */
 
     _createClass(Trivia, [{
         key: 'position',
@@ -27,6 +41,12 @@ var Trivia = (function () {
                 top: scope.top
             };
         }
+
+        /**
+         * Reveal the element by adding the `--active` class.
+         *
+         * @return {void}
+         */
     }, {
         key: 'show',
         value: function show() {
@@ -34,11 +54,30 @@ var Trivia = (function () {
                 return false;
             }
 
-            this.add_class('--active');
+            this._add_class('--active');
         }
+
+        /**
+         * Check if the instance already has the given class.
+         *
+         * @param  {string}  class_name
+         * @return {boolean}
+         */
     }, {
-        key: 'add_class',
-        value: function add_class(class_name) {
+        key: 'has_class',
+        value: function has_class(class_name) {
+            return this.element.className.indexOf(class_name) > -1;
+        }
+
+        /**
+         * Add a class to the container and the main elements.
+         *
+         * @param  {string}  class_name
+         * @return {void}
+         */
+    }, {
+        key: '_add_class',
+        value: function _add_class(class_name) {
             var element = this.element;
             var image = element.querySelector(this.prefix + '__image');
             var description = element.querySelector(this.prefix + '__description');
@@ -46,11 +85,6 @@ var Trivia = (function () {
             element.className += ' ' + class_name;
             image.className += ' ' + class_name;
             description.className += ' ' + class_name;
-        }
-    }, {
-        key: 'has_class',
-        value: function has_class(class_name) {
-            return this.element.className.indexOf(class_name) > -1;
         }
     }]);
 
@@ -78,11 +112,27 @@ var _Trivia = require('./Trivia');
 var _Trivia2 = _interopRequireDefault(_Trivia);
 
 var TriviaCollection = (function () {
+    /**
+     * Create a new Trivia Collection instance.
+     *
+     * @param  {array}  elements
+     * @return {TriviaCollection}
+     */
+
     function TriviaCollection(elements) {
         _classCallCheck(this, TriviaCollection);
 
         this.elements = this._set_elements(elements);
     }
+
+    /**
+     * Return the Trivia that matches the condition of the given callback.
+     *
+     * i.e. collection.filter(function(trivia) { return trivia.position().top === 100; });
+     *
+     * @param  {function}  condition
+     * @return {TriviaCollection}
+     */
 
     _createClass(TriviaCollection, [{
         key: 'filter',
@@ -120,6 +170,12 @@ var TriviaCollection = (function () {
 
             return new TriviaCollection(elements);
         }
+
+        /**
+         * Return all the collections that are currently visible on screen.
+         *
+         * @return {TriviaCollection}
+         */
     }, {
         key: 'visible_on_screen',
         value: function visible_on_screen() {
@@ -128,12 +184,13 @@ var TriviaCollection = (function () {
 
                 return scope > 210 && scope < 260;
             });
-            // return this.filter(function (trivia) {
-            //     var scope = trivia.position().top;
-
-            //     return (scope > 210) && (scope < 260);
-            // });
         }
+
+        /**
+         * Show all the trivia objects.
+         *
+         * @return {void}
+         */
     }, {
         key: 'show',
         value: function show() {
@@ -162,6 +219,17 @@ var TriviaCollection = (function () {
                 }
             }
         }
+
+        /**
+         * Set the trivia collection.
+         *
+         * Given values that are already trivia objects, just push it directly to
+         * the collection but, if the given object is a plain query object, pass it
+         * through a new trivia instance so filtering can be done.
+         *
+         * @param  {array}  elements
+         * @return {array}
+         */
     }, {
         key: '_set_elements',
         value: function _set_elements(elements) {
@@ -193,6 +261,45 @@ exports['default'] = TriviaCollection;
 module.exports = exports['default'];
 
 },{"./Trivia":1}],3:[function(require,module,exports){
+/**
+ * Made a scroll event helper just to make things a bit more modular.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var ScrollEvent = (function () {
+  function ScrollEvent() {
+    _classCallCheck(this, ScrollEvent);
+  }
+
+  _createClass(ScrollEvent, null, [{
+    key: 'listen',
+
+    /**
+     * Listen for a scroll event.
+     *
+     * @param  {function}  callback
+     * @return {void}
+     */
+    value: function listen(callback) {
+      window.addEventListener('scroll', callback.bind(this));
+    }
+  }]);
+
+  return ScrollEvent;
+})();
+
+exports['default'] = ScrollEvent;
+module.exports = exports['default'];
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -201,9 +308,9 @@ var _utilsParallax = require('./utils/Parallax');
 
 var _utilsParallax2 = _interopRequireDefault(_utilsParallax);
 
-var _utilsScroll = require('./utils/Scroll');
+var _eventsScrollEvent = require('./events/ScrollEvent');
 
-var _utilsScroll2 = _interopRequireDefault(_utilsScroll);
+var _eventsScrollEvent2 = _interopRequireDefault(_eventsScrollEvent);
 
 var _componentsTriviaCollection = require('./components/TriviaCollection');
 
@@ -212,13 +319,13 @@ var _componentsTriviaCollection2 = _interopRequireDefault(_componentsTriviaColle
 var selection = document.querySelectorAll('.fact');
 var trivium = new _componentsTriviaCollection2['default'](selection);
 
-_utilsScroll2['default'].listen(function () {
+_eventsScrollEvent2['default'].listen(function () {
     trivium.visible_on_screen().show();
 });
 
 _utilsParallax2['default'].on('.ice-cream').resistance(8).inverse().apply();
 
-},{"./components/TriviaCollection":2,"./utils/Parallax":4,"./utils/Scroll":5}],4:[function(require,module,exports){
+},{"./components/TriviaCollection":2,"./events/ScrollEvent":3,"./utils/Parallax":5}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -368,33 +475,4 @@ var Parallax = (function () {
 exports['default'] = Parallax;
 module.exports = exports['default'];
 
-},{}],5:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-var Scroll = (function () {
-    function Scroll() {
-        _classCallCheck(this, Scroll);
-    }
-
-    _createClass(Scroll, null, [{
-        key: 'listen',
-        value: function listen(callback) {
-            window.addEventListener('scroll', callback.bind(this));
-        }
-    }]);
-
-    return Scroll;
-})();
-
-exports['default'] = Scroll;
-module.exports = exports['default'];
-
-},{}]},{},[3]);
+},{}]},{},[4]);

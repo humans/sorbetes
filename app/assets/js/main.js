@@ -1,11 +1,11 @@
 import Parallax from './utils/Parallax';
-import Scroll from './utils/Scroll';
+import ScrollEvent from './events/ScrollEvent';
 import TriviaCollection from './components/TriviaCollection';
 
 var selection = document.querySelectorAll('.fact');
 var trivium = new TriviaCollection(selection);
 
-Scroll.listen(function () {
+ScrollEvent.listen(function () {
     trivium.visible_on_screen().show();
 });
 
