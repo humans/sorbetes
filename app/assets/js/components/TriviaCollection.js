@@ -20,11 +20,16 @@ class TriviaCollection {
     }
 
     visible_on_screen () {
-        return this.filter(function (trivia) {
+        return this.filter((trivia) => {
             var scope = trivia.position().top;
 
             return (scope > 210) && (scope < 260);
         });
+        // return this.filter(function (trivia) {
+        //     var scope = trivia.position().top;
+
+        //     return (scope > 210) && (scope < 260);
+        // });
     }
 
     show () {
@@ -36,8 +41,13 @@ class TriviaCollection {
     _set_elements (elements) {
         var collection = [];
 
-        for (let element of elements) {
+        for (let index in elements) {
+            let element = elements[index];
             let instance = element;
+
+            if (typeof element !== 'object') {
+                continue;
+            }
 
             if (element.constructor.name !== 'Trivia')  {
                 instance = new Trivia(element);

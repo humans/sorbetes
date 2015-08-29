@@ -128,6 +128,11 @@ var TriviaCollection = (function () {
 
                 return scope > 210 && scope < 260;
             });
+            // return this.filter(function (trivia) {
+            //     var scope = trivia.position().top;
+
+            //     return (scope > 210) && (scope < 260);
+            // });
         }
     }, {
         key: 'show',
@@ -162,35 +167,19 @@ var TriviaCollection = (function () {
         value: function _set_elements(elements) {
             var collection = [];
 
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
+            for (var index in elements) {
+                var element = elements[index];
+                var instance = element;
 
-            try {
-                for (var _iterator3 = elements[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var element = _step3.value;
-
-                    var instance = element;
-
-                    if (element.constructor.name !== 'Trivia') {
-                        instance = new _Trivia2['default'](element);
-                    }
-
-                    collection.push(instance);
+                if (typeof element !== 'object') {
+                    continue;
                 }
-            } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion3 && _iterator3['return']) {
-                        _iterator3['return']();
-                    }
-                } finally {
-                    if (_didIteratorError3) {
-                        throw _iteratorError3;
-                    }
+
+                if (element.constructor.name !== 'Trivia') {
+                    instance = new _Trivia2['default'](element);
                 }
+
+                collection.push(instance);
             }
 
             return collection;
@@ -220,7 +209,8 @@ var _componentsTriviaCollection = require('./components/TriviaCollection');
 
 var _componentsTriviaCollection2 = _interopRequireDefault(_componentsTriviaCollection);
 
-var trivium = new _componentsTriviaCollection2['default'](document.querySelectorAll('.fact'));
+var selection = document.querySelectorAll('.fact');
+var trivium = new _componentsTriviaCollection2['default'](selection);
 
 _utilsScroll2['default'].listen(function () {
     trivium.visible_on_screen().show();
