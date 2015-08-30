@@ -28,7 +28,7 @@ var Cart = (function () {
                 return;
             }
 
-            if (scope < 210 || scope > 260) {
+            if (scope < 0 || scope > 300) {
                 return;
             }
 
@@ -68,6 +68,79 @@ exports['default'] = Cart;
 module.exports = exports['default'];
 
 },{}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var _utilsScroll = require('./../utils/Scroll');
+
+var _utilsScroll2 = _interopRequireDefault(_utilsScroll);
+
+var Link = (function () {
+    function Link(selector) {
+        _classCallCheck(this, Link);
+
+        selector = '.' + selector;
+
+        this.element = document.querySelectorAll(selector);
+
+        if (this.element.length === 1) {
+            this.element = this.element[0];
+        }
+    }
+
+    _createClass(Link, [{
+        key: 'should_go_to',
+        value: function should_go_to(selector) {
+            var target = document.querySelector(selector);
+
+            function scroll_down(event) {
+                event.preventDefault();
+
+                _utilsScroll2['default'].to(target.offsetTop);
+            }
+
+            this.element.addEventListener('click', scroll_down);
+        }
+    }, {
+        key: 'disable',
+        value: function disable() {
+            var elements = this.element;
+
+            if (this.element instanceof Array) {
+                elements = [this.element];
+            }
+
+            for (var index = 0; index < elements.length; index++) {
+                var element = elements[index];
+
+                element.addEventListener('click', function (event) {
+                    return event.preventDefault();
+                });
+            }
+        }
+    }], [{
+        key: 'select',
+        value: function select(selector) {
+            return new Link(selector);
+        }
+    }]);
+
+    return Link;
+})();
+
+exports['default'] = Link;
+module.exports = exports['default'];
+
+},{"./../utils/Scroll":8}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -163,7 +236,7 @@ var Trivia = (function () {
 exports['default'] = Trivia;
 module.exports = exports['default'];
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -251,7 +324,7 @@ var TriviaCollection = (function () {
             return this.filter(function (trivia) {
                 var scope = trivia.position().top;
 
-                return scope > 210 && scope < 260;
+                return scope >= 0 && scope <= 300;
             });
         }
 
@@ -329,7 +402,7 @@ var TriviaCollection = (function () {
 exports['default'] = TriviaCollection;
 module.exports = exports['default'];
 
-},{"./Trivia":2}],4:[function(require,module,exports){
+},{"./Trivia":3}],5:[function(require,module,exports){
 /**
  * Made a scroll event helper just to make things a bit more modular.
  */
@@ -368,7 +441,7 @@ var ScrollEvent = (function () {
 exports['default'] = ScrollEvent;
 module.exports = exports['default'];
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -389,6 +462,10 @@ var _componentsCart = require('./components/Cart');
 
 var _componentsCart2 = _interopRequireDefault(_componentsCart);
 
+var _componentsLink = require('./components/Link');
+
+var _componentsLink2 = _interopRequireDefault(_componentsLink);
+
 var selection = document.querySelectorAll('.fact');
 var trivium = new _componentsTriviaCollection2['default'](selection);
 var cart = new _componentsCart2['default']();
@@ -400,7 +477,12 @@ _eventsScrollEvent2['default'].listen(function () {
 
 _utilsParallax2['default'].on('.ice-cream').resistance(8).inverse().apply();
 
-},{"./components/Cart":1,"./components/TriviaCollection":3,"./events/ScrollEvent":4,"./utils/Parallax":6}],6:[function(require,module,exports){
+_componentsLink2['default'].select('--about').should_go_to('.section.about');
+_componentsLink2['default'].select('--peddling').should_go_to('.section.peddling');
+_componentsLink2['default'].select('--pricing').should_go_to('.section.pricing');
+_componentsLink2['default'].select('--order').disable();
+
+},{"./components/Cart":1,"./components/Link":2,"./components/TriviaCollection":4,"./events/ScrollEvent":5,"./utils/Parallax":7}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -550,4 +632,53 @@ var Parallax = (function () {
 exports['default'] = Parallax;
 module.exports = exports['default'];
 
-},{}]},{},[5]);
+},{}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var Scroll = (function () {
+    function Scroll() {
+        _classCallCheck(this, Scroll);
+    }
+
+    _createClass(Scroll, [{
+        key: '_trigger_scroll_event',
+
+        // this._trigger_scroll_event();
+        // setInterval(this._trigger_scroll_event, 2000);
+        value: function _trigger_scroll_event() {
+            window.dispatchEvent(new Event('scroll'));
+        }
+    }], [{
+        key: 'to',
+
+        /**
+         * Scroll down to the given position and dispatch
+         * a scroll event.
+         *
+         * @todo   Animate the scrolling next time.
+         *
+         * @param  {integer} position
+         * @return {void}
+         */
+        value: function to(position) {
+            document.body.scrollTop = position;
+
+            window.dispatchEvent(new Event('scroll'));
+        }
+    }]);
+
+    return Scroll;
+})();
+
+exports['default'] = Scroll;
+module.exports = exports['default'];
+
+},{}]},{},[6]);

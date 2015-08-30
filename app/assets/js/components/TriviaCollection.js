@@ -42,7 +42,7 @@ class TriviaCollection {
         return this.filter((trivia) => {
             var scope = trivia.position().top;
 
-            return (scope > 210) && (scope < 260);
+            return ((scope >= 0) && (scope <= 300));
         });
     }
 

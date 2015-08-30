@@ -13,7 +13,7 @@ class Cart {
             return;
         }
 
-        if ((scope < 210) || (scope > 260)) {
+        if ((scope < 0) || (scope > 300)) {
             return;
         }
 
