@@ -22,7 +22,8 @@ class TriviaCollection {
     filter (condition) {
         var elements = [];
 
-        for (let element of this.elements) {
+        for (var index in this.elements) {
+            let element = this.elements[index];
             if (! condition(element)) {
                 continue;
             }
@@ -52,7 +53,9 @@ class TriviaCollection {
      * @return {void}
      */
     show () {
-        for (let element of this.elements) {
+        for (var index in this.elements) {
+            let element = this.elements[index];
+
             element.show();
         }
     }

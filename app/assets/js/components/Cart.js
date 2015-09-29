@@ -2,8 +2,8 @@ class Cart {
     constructor () {
         var selector = '.peddling__image';
 
-        this.interior = document.querySelector('.peddling__image.--interior');
-        this.exterior = document.querySelector('.peddling__image.--exterior');
+        this.interior = document.querySelector('.peddling__image.\\-\\-interior');
+        this.exterior = document.querySelector('.peddling__image.\\-\\-exterior');
     }
 
     animate () {

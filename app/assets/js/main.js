@@ -15,7 +15,7 @@ ScrollEvent.listen(function () {
 
 Parallax.on('.ice-cream').resistance(8).inverse().apply();
 
-Link.select('--about').should_go_to('.section.about');
-Link.select('--peddling').should_go_to('.section.peddling');
-Link.select('--pricing').should_go_to('.section.pricing');
-Link.select('--order').disable();
+Link.select('\\-\\-about').should_go_to('.section.about');
+Link.select('\\-\\-peddling').should_go_to('.section.peddling');
+Link.select('\\-\\-pricing').should_go_to('.section.pricing');
+Link.select('\\-\\-order').disable();

@@ -15,7 +15,7 @@ var source = require('vinyl-source-stream');
 
 gulp.task('browserify', function() {
     return browserify('./app/assets/js/main.js')
-        .transform(babelify, { stage: 1 })
+        .transform(babelify, { stage: 4 })
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./dist/js'));
