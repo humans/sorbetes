@@ -15,8 +15,8 @@ var Cart = (function () {
 
         var selector = '.peddling__image';
 
-        this.interior = document.querySelector('.peddling__image.--interior');
-        this.exterior = document.querySelector('.peddling__image.--exterior');
+        this.interior = document.querySelector('.peddling__image.\\-\\-interior');
+        this.exterior = document.querySelector('.peddling__image.\\-\\-exterior');
     }
 
     _createClass(Cart, [{
@@ -281,33 +281,13 @@ var TriviaCollection = (function () {
         value: function filter(condition) {
             var elements = [];
 
-            var _iteratorNormalCompletion = true;
-            var _didIteratorError = false;
-            var _iteratorError = undefined;
-
-            try {
-                for (var _iterator = this.elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                    var element = _step.value;
-
-                    if (!condition(element)) {
-                        continue;
-                    }
-
-                    elements.push(element);
+            for (var index in this.elements) {
+                var element = this.elements[index];
+                if (!condition(element)) {
+                    continue;
                 }
-            } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion && _iterator['return']) {
-                        _iterator['return']();
-                    }
-                } finally {
-                    if (_didIteratorError) {
-                        throw _iteratorError;
-                    }
-                }
+
+                elements.push(element);
             }
 
             return new TriviaCollection(elements);
@@ -336,29 +316,10 @@ var TriviaCollection = (function () {
     }, {
         key: 'show',
         value: function show() {
-            var _iteratorNormalCompletion2 = true;
-            var _didIteratorError2 = false;
-            var _iteratorError2 = undefined;
+            for (var index in this.elements) {
+                var element = this.elements[index];
 
-            try {
-                for (var _iterator2 = this.elements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                    var element = _step2.value;
-
-                    element.show();
-                }
-            } catch (err) {
-                _didIteratorError2 = true;
-                _iteratorError2 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion2 && _iterator2['return']) {
-                        _iterator2['return']();
-                    }
-                } finally {
-                    if (_didIteratorError2) {
-                        throw _iteratorError2;
-                    }
-                }
+                element.show();
             }
         }
 
@@ -477,10 +438,10 @@ _eventsScrollEvent2['default'].listen(function () {
 
 _utilsParallax2['default'].on('.ice-cream').resistance(8).inverse().apply();
 
-_componentsLink2['default'].select('--about').should_go_to('.section.about');
-_componentsLink2['default'].select('--peddling').should_go_to('.section.peddling');
-_componentsLink2['default'].select('--pricing').should_go_to('.section.pricing');
-_componentsLink2['default'].select('--order').disable();
+_componentsLink2['default'].select('\\-\\-about').should_go_to('.section.about');
+_componentsLink2['default'].select('\\-\\-peddling').should_go_to('.section.peddling');
+_componentsLink2['default'].select('\\-\\-pricing').should_go_to('.section.pricing');
+_componentsLink2['default'].select('\\-\\-order').disable();
 
 },{"./components/Cart":1,"./components/Link":2,"./components/TriviaCollection":4,"./events/ScrollEvent":5,"./utils/Parallax":7}],7:[function(require,module,exports){
 'use strict';
