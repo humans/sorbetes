@@ -1,0 +1,63 @@
+-
+    var categories = [
+        {
+            category: 'cream',
+            ingredients: [
+                { image: 'sugar.png', label: 'Sugar' },
+                { image: 'cornstarch.png', label: 'Corn Starch' },
+                { image: 'egg-yolks.png', label: 'Egg Yolks' },
+                { image: 'cream.png', label: 'Cream' },
+                { image: 'cassava-flour.png', label: 'Cassava Flour' },
+                { image: 'coconut-milk.png', label: 'Coconut Milk' },
+                { image: 'evaporated-milk.png', label: 'Evaporated Milk' },
+                // { image: '', label: '' },
+            ]
+        },
+
+        {
+            category: 'flavours',
+            ingredients: [
+                { image: 'mangoes.png', label: 'Mango' },
+                { image: 'avocado.png', label: 'Avocado' },
+                { image: 'cheese.png', label: 'Cheese' },
+                { image: 'ube.png', label: 'Ube' },
+                { image: 'coconut.png', label: 'Coconut' },
+                { image: 'strawberries.png', label: 'Strawberry' },
+                { image: 'chocolate.png', label: 'Chocolate' },
+                { image: 'cookies-and-cream.png', label: 'Cookies & Cream' },
+            ]
+        },
+
+        {
+            category: 'scoops',
+            ingredients: [
+                { image: 'pink-scoop.png', label: '' },
+                { image: 'white-scoop.png', label: '' },
+                { image: 'yellow-scoop.png', label: '' },
+            ]
+        },
+
+        {
+            category: 'containers',
+            ingredients: [
+                { image: 'wafer-cone.png', label: 'Wafter Cone' },
+                { image: 'sugar-cone.png', label: 'Sugar Cone' },
+                { image: 'cup-and-spoon.png', label: 'Cup & Spoon' },
+                { image: 'bread-bun.png', label: 'Bread Bun' },
+            ]
+        },
+    ]
+
+section.section.ingredients
+    div.wrapper
+        h1.headline.ingredients__headline So, is it really dirty?
+        h2.caption.ingredients__caption If it's made with other stuff, maybe. Other than that, no.
+
+        section.ingredient-categories
+            each category in categories
+                section(class=category.name)
+                    ul.scrollable.ingredient-list
+                        each ingredient in category.ingredients
+                            li.ingredient-list__ingredient.ingredient
+                                img.ingredient__image(src="/images/ingredients/" + ingredient.image, alt=ingredient.label)
+                                span.ingredient__label= ingredient.label

@@ -1,0 +1,25 @@
++component(ingredients) {
+   background: $colors.purple;
+   color:      $colors.white;
+}
+
++component(ingredient-list) {
+    overflow: auto;
+
+    +part(ingredient) {
+        display: inline;
+        float:   left;
+        overflow-x: scroll;
+    }
+}
+
++component(ingredient) {
+    list-style: none;
+    width: 33.33%;
+    padding: 1rem;
+
+    +part(image) {
+        display: block;
+        width:   100%;
+    }
+}

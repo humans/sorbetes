@@ -10,8 +10,8 @@ var livereload   = require('gulp-livereload');
 var autoprefixer = require('autoprefixer-stylus');
 
 var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
+var babelify   = require('babelify');
+var source     = require('vinyl-source-stream');
 
 gulp.task('browserify', function() {
     return browserify('./app/assets/js/main.js')
@@ -22,7 +22,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('stylus', function () {
-    var optionsptions = {
+    var options = {
         compress: true,
         use: [
             jeet(),
@@ -46,7 +46,7 @@ gulp.task('compress', function () {
 gulp.task('watch', function () {
     livereload.listen();
 
-    gulp.watch('./app/*.jade', ['jade']);
+    gulp.watch('./app/**/*.jade', ['jade']);
     gulp.watch('./app/assets/js/**/*.js', ['browserify']);
     gulp.watch('./app/assets/stylus/**/*.styl', ['stylus']);
     gulp.watch('./app/assets/js/bundle.js', ['compress']);
@@ -62,7 +62,7 @@ gulp.task('jade', function () {
 gulp.task('optimize', function () {
     var options = {
         progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
+        svgoPlugins: [{ removeViewBox: false }],
         use:         [pngquant()]
     };
 
