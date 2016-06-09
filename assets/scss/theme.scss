@@ -1,7 +1,10 @@
 @import 'base/variables';
 
 @import 'helpers/mixins';
+@import 'helpers/functions';
 
 @import 'base/utilities';
 @import 'base/boilerplate';
 @import 'base/typography';
+
+@import 'layouts/assets';
