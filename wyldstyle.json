@@ -6,12 +6,15 @@
         "xl": "breakpoint(retina)"
     },
     "directory": ["resources/assets/js", "resources/views"],
-    "output": "resources/assets/scss/base/_utilities.scss",
+    "output": "assets/scss/base/_utilities.scss",
     "emmet": {
         "syntax": "scss",
         "preferences": {
             "caniuse.enabled": false,
             "css.autoInsertVendorPrefixes": false
+        },
+        "snippets": {
+            "m:0a": "margin: 0 auto"
         }
     }
 }
