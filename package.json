@@ -1,31 +1,11 @@
 {
-  "name": "sorbetes.git",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "babel": "^5.8.23",
-    "lodash": "^3.10.1"
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "sass": "node-sass --output-style compressed --watch --recursive --output css --source-map true assets/scss",
+    "ws": "ws resources/assets/js resources/views resources/assets/stylus/base/utilities.styl"
   },
   "devDependencies": {
-    "autoprefixer-stylus": "^0.7.0",
-    "babelify": "^6.2.0",
-    "browserify": "^11.0.1",
-    "gulp": "^3.9.0",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-jade": "^1.0.1",
-    "gulp-livereload": "^3.8.0",
-    "gulp-stylus": "^2.0.5",
-    "gulp-uglify": "^1.2.0",
-    "imagemin-pngquant": "^4.1.0",
-    "jeet": "^6.1.2",
-    "rupture": "^0.6.1",
-    "stylus": "^0.51.1",
-    "vinyl-source-stream": "^1.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "wyldstyle": "^0.3.8"
+  }
 }

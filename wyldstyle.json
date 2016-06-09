@@ -1,0 +1,17 @@
+{
+    "breakpoints": {
+        "s":  "breakpoint(mobile)",
+        "m":  "breakpoint(tablet)",
+        "l":  "breakpoint(desktop)",
+        "xl": "breakpoint(retina)"
+    },
+    "directory": ["resources/assets/js", "resources/views"],
+    "output": "resources/assets/scss/base/_utilities.scss",
+    "emmet": {
+        "syntax": "scss",
+        "preferences": {
+            "caniuse.enabled": false,
+            "css.autoInsertVendorPrefixes": false
+        }
+    }
+}
