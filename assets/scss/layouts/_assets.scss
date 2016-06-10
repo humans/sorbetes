@@ -16,9 +16,9 @@
 .fact__image {
     height: 12rem;
 
-    display: flex;
+    display:         flex;
     justify-content: center;
-    align-items: center;
+    align-items:     center;
 }
 
 .fact__description {
@@ -76,6 +76,9 @@
 
 .product__image {
     height: 16.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product__title {
