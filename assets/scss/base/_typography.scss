@@ -1,19 +1,20 @@
 html, body {
-    font-family: "adelle-sans", sans;
+    font-family: "adelle-sans", sans-serif;
     font-size:   16px;
+    line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: $iroko;
-    font-family: "adelle", sans-serif;
+    font-family: "adelle", serif;
 }
 
 .a-ff\:headline {
-    font-family: "adelle", sans;
+    font-family: "adelle", serif;
 }
 
 .a-ff\:body {
-    font-family: "adelle-sans", sans;
+    font-family: "adelle-sans", sans-serif;
 }
 
 h1 {
