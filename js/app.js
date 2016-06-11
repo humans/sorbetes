@@ -20,7 +20,7 @@ document.addEventListener('scroll', function (event) {
     }
 
     let total = window.pageYOffset + window.innerHeight;
-    let offset = window.pageYOffset * -1 / 3;
+    let offset = window.pageYOffset * -1 / 5;
 
     ice_cream.style.transform = 'translate(-50%, ' + (offset + 80) + 'px)';
 });

@@ -16,7 +16,7 @@
 }
 
 .fact__description {
-    transition-delay: 0.25s;
+    transition-delay: 0.35s;
 }
 
 .fact--visible > .fact__image, .fact--visible > .fact__description {
@@ -74,6 +74,8 @@
 }
 
 .button {
+    background:      linear-gradient(to bottom, transparent 50%, $java 50%);
+    background-size: 100% 200%;
     border:          2px solid $java;
     border-radius:   5rem;
     color:           $java;
@@ -82,7 +84,13 @@
     padding:         0.5625rem 1.25rem;
     text-transform:  uppercase;
     text-decoration: none;
+    transition:      0.3s color, 0.3s background-position ease-in-out;
     width:           6.75rem;
+
+    &:hover {
+        color: $half-colonial-white;
+        background-position: right bottom;
+    }
 }
 
 .product {
