@@ -9,6 +9,127 @@
     transform: translate(-50%, 5rem);
 }
 
+.feature__section {
+    border:        2px dashed rgba($black-white, 0.4);
+    border-radius: 3px;
+    margin:        0 auto;
+    margin-top:    2.5rem;
+    padding:       0.75rem;
+    width:         100%;
+}
+
+.feature__section--border-solid {
+    border-style: solid;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature__name {
+    color: $black-white;
+    font-size: .875rem;
+}
+
+.feature__image {
+    height: 6.25rem;
+    width:  6.25rem;
+    background-position: center center;
+    background-repeat:   no-repeat;
+    background-size:     100%;
+}
+
+.feature__image--sugar {
+    background-image: url(../images/features/sugar.png);
+    background-size:  70%;
+}
+
+.feature__image--cornstarch {
+    background-image: url(../images/features/cornstarch.png);
+    background-size:  50%;
+}
+
+.feature__image--yolks {
+    background-image: url(../images/features/egg-yolks.png);
+    background-size:  80%;
+}
+
+.feature__image--cream {
+    background-image: url(../images/features/cream.png);
+    background-size:  60%;
+}
+
+.feature__image--coconut-milk {
+    background-image: url(../images/features/coconut-milk.png);
+    background-size:  70%;
+}
+
+.feature__image--evaporated-milk {
+    background-image: url(../images/features/evaporated-milk.png);
+    background-size:  60%;
+}
+
+.feature__image--mango {
+    background-image: url(../images/features/mangoes.png);
+    background-size:  60%;
+}
+
+.feature__image--avocado {
+    background-image: url(../images/features/avocado.png);
+    background-size:  60%;
+}
+
+.feature__image--coconut {
+    background-image: url(../images/features/coconut.png);
+    background-size:  60%;
+}
+
+.feature__image--strawberry {
+    background-image: url(../images/features/strawberries.png);
+    background-size:  60%;
+}
+
+.feature__image--cheese {
+    background-image: url(../images/features/cheese.png);
+    background-size:  60%;
+}
+
+.feature__image--ube {
+    background-image: url(../images/features/ube.png);
+    background-size:  60%;
+}
+
+.feature__image--chocolate {
+    background-image: url(../images/features/chocolate.png);
+    background-size:  60%;
+}
+
+.feature__image--cookies-and-cream {
+    background-image: url(../images/features/cookies-and-cream.png);
+    background-size:  60%;
+}
+
+.feature__image--wafer-cone {
+    background-image: url(../images/features/wafer-cone.png);
+    background-size:  45%;
+}
+
+.feature__image--sugar-cone {
+    background-image: url(../images/features/sugar-cone.png);
+    background-size:  45%;
+}
+
+.feature__image--cup {
+    background-image: url(../images/features/cup-and-spoon.png);
+    background-size:  45%;
+}
+
+.feature__image--bread {
+    background-image: url(../images/features/bread-bun.png);
+    background-size:  50%;
+}
+
+// FACT
 .fact__image, .fact__description {
     opacity: 0;
     transition: 0.5s transform, 0.5s opacity ease-in-out;
@@ -19,7 +140,8 @@
     transition-delay: 0.35s;
 }
 
-.fact--visible > .fact__image, .fact--visible > .fact__description {
+.fact--visible > .fact__image,
+.fact--visible > .fact__description {
     opacity: 1;
     transform: translateY(0);
 }
@@ -40,6 +162,8 @@
     margin-top: 1.5rem;
 }
 
+
+// STAGE
 .stage__curtain {
     height: 100%;
     width:  50%;
@@ -73,6 +197,7 @@
     transform: translateY(-50%);
 }
 
+// BUTTON
 .button {
     background:      linear-gradient(to bottom, transparent 50%, $java 50%);
     background-size: 100% 200%;
@@ -93,6 +218,7 @@
     }
 }
 
+// PRODUCT
 .product {
     padding: 2rem 1rem;
 }
