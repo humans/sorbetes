@@ -6,13 +6,22 @@
 
 .board__image--ice-cream {
     left: 50%;
-    transform: translate(-50%, 20%);
+    transform: translate(-50%, 5rem);
 }
 
 .fact__image, .fact__description {
     opacity: 0;
-    transition: 0.2s transform, 0.2s opacity ease-in-out;
+    transition: 0.5s transform, 0.5s opacity ease-in-out;
     transform: translateY(-2rem);
+}
+
+.fact__description {
+    transition-delay: 0.25s;
+}
+
+.fact--visible > .fact__image, .fact--visible > .fact__description {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .fact {
