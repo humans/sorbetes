@@ -2,8 +2,11 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
     "concurrently": "^2.1.0",
     "node-sass": "^3.7.0",
+    "watchify": "^3.7.0",
     "wyldstyle": "^0.3.8"
   },
   "scripts": {
