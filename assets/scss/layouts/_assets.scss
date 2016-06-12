@@ -9,6 +9,10 @@
     transform: translate(-50%, 5rem);
 }
 
+.feature__section > ul > li {
+    display: inline-block;
+}
+
 .feature__section {
     border:        2px dashed rgba($black-white, 0.4);
     border-radius: 3px;
