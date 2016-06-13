@@ -2,13 +2,19 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
     "concurrently": "^2.1.0",
     "node-sass": "^3.7.0",
+    "watchify": "^3.7.0",
     "wyldstyle": "^0.3.8"
   },
   "scripts": {
-    "dev": "concurrently 'npm run sass' 'npm run wyldstyle'",
+    "dev": "concurrently 'npm run sass' 'npm run wyldstyle' 'npm run livereload' 'npm run server' 'npm run browserify'",
     "sass": "node-sass --output-style compressed --watch --recursive --output css --source-map true assets/scss",
-    "wyldstyle": "ws assets/js index.html assets/stylus/base/utilities.styl"
+    "wyldstyle": "ws assets/js index.html assets/stylus/base/utilities.styl",
+    "browserify": "watchify assets/js/app.js -t babelify -o js/app.js",
+    "livereload": "livereload .",
+    "server": "php -S dev:3000"
   }
 }

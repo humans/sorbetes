@@ -1,0 +1,254 @@
+.board--hero {
+    background-image:    url(../images/tongue.png);
+    background-position: center center;
+    background-repeat:   no-repeat;
+}
+
+.board__image--ice-cream {
+    left: 50%;
+    transform: translate(-50%, 5rem);
+}
+
+.feature__section > ul > li {
+    display: inline-block;
+}
+
+.feature__section {
+    border:        2px dashed rgba($black-white, 0.4);
+    border-radius: 3px;
+    margin:        0 auto;
+    margin-top:    2.5rem;
+    padding:       0.75rem;
+    width:         100%;
+}
+
+.feature__section--border-solid {
+    border-style: solid;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature__name {
+    color: $black-white;
+    font-size: .875rem;
+}
+
+.feature__image {
+    height: 6.25rem;
+    width:  6.25rem;
+    background-position: center center;
+    background-repeat:   no-repeat;
+    background-size:     100%;
+}
+
+.feature__image--sugar {
+    background-image: url(../images/features/sugar.png);
+    background-size:  70%;
+}
+
+.feature__image--cornstarch {
+    background-image: url(../images/features/cornstarch.png);
+    background-size:  50%;
+}
+
+.feature__image--yolks {
+    background-image: url(../images/features/egg-yolks.png);
+    background-size:  80%;
+}
+
+.feature__image--cream {
+    background-image: url(../images/features/cream.png);
+    background-size:  60%;
+}
+
+.feature__image--coconut-milk {
+    background-image: url(../images/features/coconut-milk.png);
+    background-size:  70%;
+}
+
+.feature__image--evaporated-milk {
+    background-image: url(../images/features/evaporated-milk.png);
+    background-size:  60%;
+}
+
+.feature__image--mango {
+    background-image: url(../images/features/mangoes.png);
+    background-size:  60%;
+}
+
+.feature__image--avocado {
+    background-image: url(../images/features/avocado.png);
+    background-size:  60%;
+}
+
+.feature__image--coconut {
+    background-image: url(../images/features/coconut.png);
+    background-size:  60%;
+}
+
+.feature__image--strawberry {
+    background-image: url(../images/features/strawberries.png);
+    background-size:  60%;
+}
+
+.feature__image--cheese {
+    background-image: url(../images/features/cheese.png);
+    background-size:  60%;
+}
+
+.feature__image--ube {
+    background-image: url(../images/features/ube.png);
+    background-size:  60%;
+}
+
+.feature__image--chocolate {
+    background-image: url(../images/features/chocolate.png);
+    background-size:  60%;
+}
+
+.feature__image--cookies-and-cream {
+    background-image: url(../images/features/cookies-and-cream.png);
+    background-size:  60%;
+}
+
+.feature__image--wafer-cone {
+    background-image: url(../images/features/wafer-cone.png);
+    background-size:  45%;
+}
+
+.feature__image--sugar-cone {
+    background-image: url(../images/features/sugar-cone.png);
+    background-size:  45%;
+}
+
+.feature__image--cup {
+    background-image: url(../images/features/cup-and-spoon.png);
+    background-size:  45%;
+}
+
+.feature__image--bread {
+    background-image: url(../images/features/bread-bun.png);
+    background-size:  50%;
+}
+
+// FACT
+.fact__image, .fact__description {
+    opacity: 0;
+    transition: 0.5s transform, 0.5s opacity ease-in-out;
+    transform: translateY(-2rem);
+}
+
+.fact__description {
+    transition-delay: 0.35s;
+}
+
+.fact--visible > .fact__image,
+.fact--visible > .fact__description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fact {
+    margin-bottom: 5rem;
+}
+
+.fact__image {
+    height: 12rem;
+
+    display:         flex;
+    justify-content: center;
+    align-items:     center;
+}
+
+.fact__description {
+    margin-top: 1.5rem;
+}
+
+
+// STAGE
+.stage__curtain {
+    height: 100%;
+    width:  50%;
+}
+
+.stage__image {
+    height: 100%;
+    width: 100%;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.stage__image--exterior {
+    background-image: url(../images/cart/exterior.png);
+    transform:        translateX(50%);
+}
+
+.stage__image--interior {
+    background-image: url(../images/cart/interior.png);
+    transform:        translateX(-50%);
+}
+
+.stage__curtain {
+    overflow: hidden;
+}
+
+.stage__separator {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// BUTTON
+.button {
+    background:      linear-gradient(to bottom, transparent 50%, $java 50%);
+    background-size: 100% 200%;
+    border:          2px solid $java;
+    border-radius:   5rem;
+    color:           $java;
+    display:         inline-block;
+    font-size:       0.875rem;
+    padding:         0.5625rem 1.25rem;
+    text-transform:  uppercase;
+    text-decoration: none;
+    transition:      0.3s color, 0.3s background-position ease-in-out;
+    width:           6.75rem;
+
+    &:hover {
+        color: $half-colonial-white;
+        background-position: right bottom;
+    }
+}
+
+// PRODUCT
+.product {
+    padding: 2rem 1rem;
+}
+
+.product__image {
+    height: 16.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product__title {
+    font-family: 'adelle-sans', sans-serif;
+    font-weight: 200;
+}
+
+.product__description {
+    margin-top: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.product__order {
+    margin-bottom: 0.5rem;
+}
+
+.product__price {
+    display: block;
+    margin-bottom: 1rem;
+}
