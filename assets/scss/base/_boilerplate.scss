@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    width:      100%;
+    overflow-x: hidden; // Hack for the peddling cart animation to work.
+}
+
+
+.wrapper {
+    padding: 0rem 1rem;
+
+    margin:    0 auto;
+    max-width: 75rem;
+    width:     100%;
+}
